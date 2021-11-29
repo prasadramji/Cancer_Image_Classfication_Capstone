@@ -10,7 +10,7 @@ st.title("Cancer Image Classification")
 
 st.markdown("\nsome text")
 
-col1 = st.beta_columns(2)
+col1 = st.beta_columns(1)
 image_1 = col1.file_uploader("Image ",type=['png','jpg','jpeg'])
 
 col1,col2 = st.beta_columns(2)

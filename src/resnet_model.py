@@ -10,7 +10,7 @@ from tensorflow.keras.models import Model, Sequential
 from tensorflow.keras.applications import ResNet101
 from tensorflow.keras.layers import Dense, Flatten, Dropout
 from tensorflow.keras.preprocessing import image
-from keras.applications.resnet101 import preprocess_input
+from tensorflow.keras.applications.resnet101 import preprocess_input
 
 
 def create_model():

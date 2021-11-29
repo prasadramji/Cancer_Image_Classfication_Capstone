@@ -35,7 +35,7 @@ def create_model():
     prediction=Dense(5,activation='softmax')(dense)
 
     resmodel=Model(inputs=resnet.input,outputs=prediction)
-    resmodel.load_weights('../models/resnet101_weights.h5')
+    resmodel.load_weights('./models/resnet101_weights.h5')
     return resmodel
 
 def predict_Category(image1, model):

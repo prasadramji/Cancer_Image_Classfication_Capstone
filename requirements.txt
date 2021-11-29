@@ -4,5 +4,5 @@ nltk==3.5
 pandas==1.1.3
 tensorflow==2.5.0
 joblib==0.17.0
-streamlit==0.77.0
+streamlit==1.2.0
 Pillow==8.1.0

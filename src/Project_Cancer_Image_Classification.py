@@ -10,12 +10,10 @@ st.title("Cancer Image Classification")
 
 st.markdown("\nsome text")
 
-col1 = st.beta_columns(1)
-image_1 = col1.file_uploader("Image ",type=['png','jpg','jpeg'])
+image_1 = st.file_uploader('Upload An Image')
 
-col1,col2 = st.beta_columns(2)
-predict_button = col1.button('Predict on uploaded files')
-test_data = col2.button('Predict on sample data')
+predict_button = st.button('Predict on uploaded files', on_click=None)
+test_data = st.button('Predict on sample data', on_click=None)
 
 @st.cache
 def create_model():

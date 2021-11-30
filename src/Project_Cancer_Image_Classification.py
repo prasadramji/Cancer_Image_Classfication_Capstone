@@ -28,7 +28,7 @@ def predict(image_1,resmodel,predict_button = predict_button):
             start = time.process_time()  
             # image_1 = Image.open(image_1).convert("RGB") #converting to 3 channels
             # image_1 = np.array(image_1)/255
-            
+            st.write(image_1)
             img = image.load_img(image_1, target_size=(224,224))
             x = image.img_to_array(img)
             st.image([image_1],width=300)

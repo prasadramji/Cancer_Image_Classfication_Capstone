@@ -4,7 +4,7 @@ import numpy as np
 import time
 from PIL import Image
 import resnet_model as cm
-
+from tensorflow.keras.preprocessing import image
 
 st.title("Cancer Image Classification")
 
@@ -26,10 +26,14 @@ def predict(image_1,resmodel,predict_button = predict_button):
     if predict_button:
         if (image_1 is not None):
             start = time.process_time()  
-            image_1 = Image.open(image_1).convert("RGB") #converting to 3 channels
-            image_1 = np.array(image_1)/255
+            # image_1 = Image.open(image_1).convert("RGB") #converting to 3 channels
+            # image_1 = np.array(image_1)/255
+            
+            img = image.load_img(image_1, target_size=(224,224))
+            x = image.img_to_array(img)
             st.image([image_1],width=300)
-            caption = cm.predict_Category([image_1],resmodel)
+
+            caption = cm.predict_Category(x,resmodel)
             st.markdown(" ### **Impression:**")
             impression = st.empty()
             impression.write(caption[0])

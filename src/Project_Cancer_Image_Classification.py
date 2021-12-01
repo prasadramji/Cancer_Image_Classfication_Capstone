@@ -8,7 +8,7 @@ from tensorflow.keras.preprocessing import image
 
 st.title("Cancer Image Classification")
 
-st.markdown("\nsome text")
+st.markdown("\nLung and colon cancer is currently one of the most vital diseases in society, and patients are more likely to be cured if the disease is spotted earlier. Using computer vision for analyzing the lung and colon cancer images will spead up the analysis process.")
 
 image_1 = st.file_uploader('Upload An Image')
 
@@ -34,7 +34,7 @@ def predict(image_1,resmodel,predict_button = predict_button):
             st.image([image_1],width=300)
 
             caption = cm.predict_Category(x,resmodel)
-            st.markdown(" ### **Impression:**")
+            st.markdown(" ### **Class:**")
             impression = st.empty()
             impression.write(caption)
             time_taken = "Time Taken for prediction: %i seconds"%(time.process_time()-start)
@@ -57,4 +57,4 @@ resmodel = create_model()
 if test_data:
     predict_sample(resmodel)
 else:
-    predict(image_1,resmodel)
+    predict(image_1.getvalue(),resmodel)

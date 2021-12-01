@@ -46,5 +46,5 @@ def predict_Category(image1, model):
     # x = image.img_to_array(image1)
     x = np.expand_dims(image1, axis=0)
     x = preprocess_input(x)
-    class_names = ['colon_aca', 'colon_n', 'lung_aca', 'lung_n', 'lung_scc']
+    class_names = ['Colon Adenocarcinoma', 'Colon Benign Tissue', 'Lung Adenocarcinoma', 'Lung Benign Tissue', 'Lung Squamous Cell Carcinoma']
     return class_names[np.argmax(model.predict(x))]

@@ -54,11 +54,12 @@ def predict_sample(resmodel,folder = './test_images'):
     predict(img,resmodel, True)
 
 def predict_uploadded(image_1, resmodel):
-    size = 128, 128
-    img = Image.open(image_1)
-    img = img.convert('RGB')
-    img = img.resize(size, Image.NEAREST)
-    predict(img,resmodel, True)
+    if image_1 is not None:
+        size = 128, 128
+        img = Image.open(image_1.getvalue())
+        img = img.convert('RGB')
+        img = img.resize(size, Image.NEAREST)
+        predict(img,resmodel, True)
     
 resmodel = create_model()
 
@@ -66,4 +67,4 @@ resmodel = create_model()
 if test_data:
     predict_sample(resmodel)
 else:
-    predict_uploadded(uploaded_file.getvalue(),resmodel)
+    predict_uploadded(uploaded_file,resmodel)

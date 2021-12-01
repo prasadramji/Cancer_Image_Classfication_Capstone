@@ -59,16 +59,7 @@ def predict_uploadded(image_1, resmodel):
     img = Image.open(io.BytesIO(image_1.read()))
     img = img.convert('RGB')
     img = img.resize(size, Image.NEAREST)
-    x = image.img_to_array(img)
-    st.image([img],width=300)
-
-    caption = cm.predict_Category(x,resmodel)
-    st.markdown(" ### **Class:**")
-    impression = st.empty()
-    impression.write(caption)
-    time_taken = "Time Taken for prediction: %i seconds"%(time.process_time()-start)
-    st.write(time_taken)
-    del img
+    predict(img,resmodel, True)
     
 resmodel = create_model()
 
@@ -76,4 +67,4 @@ resmodel = create_model()
 if test_data:
     predict_sample(resmodel)
 else:
-    predict(image_1,resmodel)
+    predict_uploadded(image_1,resmodel)

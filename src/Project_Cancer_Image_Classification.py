@@ -28,9 +28,9 @@ def predict(image_1,resmodel,predict_button = predict_button):
             start = time.process_time()  
             # image_1 = Image.open(image_1).convert("RGB") #converting to 3 channels
             # image_1 = np.array(image_1)/255
-            st.write(image_1)
-            img = image.load_img(image_1, target_size=(224,224))
-            x = image.img_to_array(img)
+            # st.write(image_1)
+            # img = image.load_img(image_1, target_size=(224,224))
+            x = image.img_to_array(image_1)
             st.image([image_1],width=300)
 
             caption = cm.predict_Category(x,resmodel)
@@ -48,7 +48,15 @@ def predict_sample(resmodel,folder = './test_images'):
     file = np.random.randint(1,no_files)
     file_path = os.path.join(folder,str(file))
     image_1 = os.path.join(file_path,os.listdir(file_path)[0])
-    predict(image_1,resmodel, True)
+    st.write(image_1)
+    img = image.load_img(image_1, target_size=(224,224))
+    predict(img,resmodel, True)
+
+def predict_uploadded(image_1, resmodel):
+    size = 128, 128
+    st.write(image_1)
+    img = Image.open(image_1).thumbnail(size)
+    predict(img,resmodel, True)
     
 
 resmodel = create_model()
@@ -57,4 +65,4 @@ resmodel = create_model()
 if test_data:
     predict_sample(resmodel)
 else:
-    predict(image_1.getvalue(),resmodel)
+    predict(image_1,resmodel)

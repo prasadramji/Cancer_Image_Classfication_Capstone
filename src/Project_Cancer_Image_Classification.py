@@ -55,7 +55,7 @@ def predict_sample(resmodel,folder = './test_images'):
 
 def predict_uploadded(image_1, resmodel):
     if image_1 is not None:
-        size = 128, 128
+        size = 224,224
         img = Image.open(image_1)
         img = img.convert('RGB')
         img = img.resize(size, Image.NEAREST)

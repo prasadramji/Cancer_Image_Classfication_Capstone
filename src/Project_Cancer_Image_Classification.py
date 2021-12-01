@@ -11,7 +11,7 @@ st.title("Cancer Image Classification")
 
 st.markdown("\nLung and colon cancer is currently one of the most vital diseases in society, and patients are more likely to be cured if the disease is spotted earlier. Using computer vision for analyzing the lung and colon cancer images will spead up the analysis process.")
 
-uploaddedd_image = st.file_uploader('Upload An Image')
+uploaded_file = st.file_uploader('Upload An Image')
 
 predict_button = st.button('Predict on uploaded files', on_click=None)
 test_data = st.button('Predict on sample data', on_click=None)
@@ -55,7 +55,6 @@ def predict_sample(resmodel,folder = './test_images'):
 
 def predict_uploadded(image_1, resmodel):
     size = 128, 128
-    st.write(image_1)
     img = Image.open(image_1)
     img = img.convert('RGB')
     img = img.resize(size, Image.NEAREST)
@@ -67,4 +66,4 @@ resmodel = create_model()
 if test_data:
     predict_sample(resmodel)
 else:
-    predict_uploadded(uploaddedd_image,resmodel)
+    predict_uploadded(uploaded_file.getvalue(),resmodel)

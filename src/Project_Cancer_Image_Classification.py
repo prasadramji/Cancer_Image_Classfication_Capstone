@@ -36,7 +36,7 @@ def predict(image_1,resmodel,predict_button = predict_button):
             caption = cm.predict_Category(x,resmodel)
             st.markdown(" ### **Impression:**")
             impression = st.empty()
-            impression.write(caption[0])
+            impression.write(caption)
             time_taken = "Time Taken for prediction: %i seconds"%(time.process_time()-start)
             st.write(time_taken)
             del image_1
